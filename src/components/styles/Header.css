@@ -1,0 +1,25 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    width: 80%;
+    margin: 0 auto;  
+}
+
+.logo-img{
+    width: 200px;
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+}
+
+.nav ul{
+   display: flex;
+}
+
+.nav li{
+    padding: 0 15px;
+}
