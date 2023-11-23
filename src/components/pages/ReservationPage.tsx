@@ -1,13 +1,15 @@
 import React, {useReducer} from 'react';
 
 import "../styles/ReservationsContent.scss";
-import BookingForm from "../BookingForm"
+import BookingForm from "../BookingForm.tsx"
 import Header from "../Header.tsx";
 import Footer from "../Footer.tsx";
-
+import { updateTimes, initializeTimes } from "../api.ts";
 const ReservationPage = () => {
 
-    const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes())
+    const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
+
+    console.log('asd',availableTimes);
     return (
         <>
             <Header />
@@ -29,11 +31,4 @@ const ReservationPage = () => {
         </>
       )
 }
-function initializeTimes (){
-    return  ['17:00','18:00', '19:00', '20:00', '21:00', '22:00'];
-}
-function updateTimes (state, action){
-    return state;
-}
-
 export default ReservationPage;

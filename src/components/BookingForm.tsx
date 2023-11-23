@@ -1,23 +1,14 @@
-
-import React, {useEffect,FC, Dispatch} from 'react';
-
+import React, {useEffect} from "react";
 import "./styles/ReservationsContent.scss";
 
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { useNavigate, NavigateFunction } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
-interface BookingFormProps{
-    dispatch: Dispatch<{type:string, date:Date}>,
-    availableTimes: {
-        times: string[];
-    }
-}
+const BookingForm = ({ availableTimes, dispatch }) => {
 
-const BookingForm: FC<BookingFormProps> = ({ availableTimes, dispatch }): JSX.Element => {
-
-    const navigate: NavigateFunction = useNavigate();
+    const navigate = useNavigate();
     const formik = useFormik({
         initialValues: {
           date: '',
@@ -106,7 +97,7 @@ const BookingForm: FC<BookingFormProps> = ({ availableTimes, dispatch }): JSX.El
                     <label htmlFor="time">Time</label>
                     <div className="occasion-container">
                         <select id="time" {...formik.getFieldProps("time")}>
-                          {availableTimes.map( (time) => {
+                          {availableTimes.times.map( (time) => {
                             return <option key={time} value={time}>{time}</option>
                           })}
                         </select>
